@@ -12,7 +12,7 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone <repo-url>
+   git clone kpa-api-assignment
    cd kpa-api-assignment
    ```
 
