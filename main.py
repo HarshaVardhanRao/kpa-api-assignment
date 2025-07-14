@@ -9,7 +9,6 @@ app = FastAPI(title="KPA API Assignment", docs_url="/docs", redoc_url="/redoc")
 app.include_router(auth.router)
 app.include_router(form.router)
 
-# Create tables and default user on startup
 @app.on_event("startup")
 def startup_event():
     Base.metadata.create_all(bind=engine)

@@ -14,7 +14,6 @@ class FormDataBase(BaseModel):
     email: str
     phone: str
     address: Optional[str] = None
-    # Add more fields as per API spec
 
 class FormDataCreate(FormDataBase):
     pass

@@ -1,5 +1,85 @@
 # KPA API Assignment
 
+## Tech Stack Used
+- **Python 3**
+- **FastAPI** (Web framework)
+- **SQLAlchemy** (ORM)
+- **PostgreSQL** (Database)
+- **Docker** (for containerization)
+- **JWT** (Authentication)
+
+## Setup Instructions
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repo-url>
+   cd kpa-api-assignment
+   ```
+
+2. **Set up environment variables:**
+   - You can use a `.env` file or set the following variables:
+     - `DB_HOST` (default: localhost)
+     - `DB_PORT` (default: 5432)
+     - `DB_NAME` (default: kpa_db)
+     - `DB_USER` (default: postgres)
+     - `DB_PASSWORD` (default: postgres)
+     - `SECRET_KEY` (default: supersecret)
+
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the application:**
+   ```bash
+   uvicorn main:app --reload
+   ```
+   Or use Docker Compose:
+   ```bash
+   docker-compose up --build
+   ```
+
+5. **Access the API docs:**
+   - Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)
+   - Redoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+
+## Implemented APIs
+
+### 1. Submit Form Data
+- **Endpoint:** `POST /form/submit`
+- **Description:** Submits new form data. Requires Bearer token authentication.
+- **Request Body:** Form data fields as per the schema.
+- **Response:** The created form data object.
+
+### 2. Get Form Data by ID
+- **Endpoint:** `GET /form/{form_id}`
+- **Description:** Retrieves form data by its unique ID. Requires Bearer token authentication.
+- **Response:** The form data object if found, otherwise 404 error.
+
+### 3. User Authentication
+- **Endpoint:** `POST /auth/login`
+- **Description:** Authenticates a user using phone and password. Returns a JWT access token.
+- **Request Body:**
+  - `phone`: string
+  - `password`: string
+- **Response:**
+  - `access_token`: JWT token
+  - `token_type`: bearer
+
+### 4. User Registration
+- **Endpoint:** `POST /auth/register`
+- **Description:** Registers a new user with phone and password.
+- **Request Body:**
+  - `phone`: string
+  - `password`: string
+- **Response:**
+  - User ID and phone
+
+---
+
+For more details, refer to the Swagger UI documentation after running the server.
+# KPA API Assignment
+
 ## Tech Stack
 - FastAPI (Python)
 - PostgreSQL

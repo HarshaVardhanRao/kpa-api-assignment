@@ -14,4 +14,3 @@ class FormData(Base):
     email = Column(String, nullable=False)
     phone = Column(String, nullable=False)
     address = Column(String, nullable=True)
-    # Add more fields as per API spec
